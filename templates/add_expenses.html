@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+
+{% block title %}Add Expenses - Expense Tracker{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add Expenses for a Date</h2>
+
+    {% if message %}
+        <div id="message" class="alert alert-{{ msg_type }} alert-dismissible fade show alert-success" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-7">
+            <div class="card p-4 shadow-sm">
+                <form action="{{ url_for('add_expenses') }}" method="POST">
+                    <!-- Common Date Field -->
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date:</label>
+                        <input type="date" id="date" name="date" class="form-control" required>
+                    </div>
+
+                    <!-- Dynamic Rows for Records -->
+                    <div id="records-container">
+                        <div class="row mb-3 record-row">
+                            <div class="col-6">
+                                <label for="amount" class="form-label">Amount (₹):</label>
+                                <input type="number" name="amount[]" class="form-control" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="category" class="form-label">Category:</label>
+                                <input type="text" name="category[]" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add/Remove Buttons -->
+                    <div class="d-flex justify-content-end mb-3">
+                        <button type="button" id="add-row" class="btn btn-success me-2">Add Record</button>
+                        <button type="button" id="remove-row" class="btn btn-danger">Remove Record</button>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Expenses</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const addRowBtn = document.getElementById("add-row");
+        const removeRowBtn = document.getElementById("remove-row");
+        const recordsContainer = document.getElementById("records-container");
+
+        // Add new record row
+        addRowBtn.addEventListener("click", function () {
+            const newRow = document.createElement("div");
+            newRow.classList.add("row", "mb-3", "record-row");
+            newRow.innerHTML = `
+                <div class="col-6">
+                    <label class="form-label">Amount (₹):</label>
+                    <input type="number" name="amount[]" class="form-control" required>
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Category:</label>
+                    <input type="text" name="category[]" class="form-control" required>
+                </div>
+            `;
+            recordsContainer.appendChild(newRow);
+        });
+
+        // Remove last record row
+        removeRowBtn.addEventListener("click", function () {
+            const rows = recordsContainer.querySelectorAll(".record-row");
+            if (rows.length > 1) {
+                rows[rows.length - 1].remove();
+            }
+        });
+    });
+</script>
+{% endblock %}

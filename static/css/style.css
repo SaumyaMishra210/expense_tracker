@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fc;  /* Very Light Gray */
+    color: #495057;  /* Dark Gray */
+}
+
+/* Header */
+header {
+    background-color: #1a9e0c;  /* Theme Color */
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    display: inline-block;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    width: 80%;
+    margin: 20px auto;
+    background: #ffffff;  /* White background */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fc;  /* Very Light Gray */
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    color: #555;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #30a323;  /* Theme Color */
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;  /* Rounded corners */
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #1d5e14;  /* Darker Shade of Theme Color */
+}
+
+/* Secondary Buttons (for actions like Cancel, Edit) */
+.button.secondary {
+    background-color: #1cc88a;  /* Teal */
+}
+
+.button.secondary:hover {
+    background-color: #17a673;  /* Darker Teal */
+}
+
+/* For pop-up messages */
+#message {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* For home page table */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f3f5;  /* Light Gray */
+}
+
+/* Input Fields */
+input, select, textarea {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #23771a;  /* Theme Color */
+    outline: none;
+    box-shadow: 0 0 5px rgba(35, 119, 26, 0.5);
+}
