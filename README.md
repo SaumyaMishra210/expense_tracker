@@ -15,22 +15,22 @@ An intuitive web-based **Expense Tracker** that allows users to manage and track
 
 ### 1. Home Page
 
-![Home Page](screenshots/home_page.png)
+![Home Page](screenshots/home.png)
 *Displays total expenses and a list of all expenses.*
 
 ### 2. Add Expense Page
 
-![Add Expense Page](screenshots/add_expense.png)
+![Add Expense Page](screenshots/expense.png)
 *Form for adding new expenses with fields for amount, category, and date.*
 
 ### 3. Delete Expense Functionality
 
-![Delete Expense](screenshots/delete_expense.png)
+![Delete Expense](screenshots/delete.png)
 *Each expense entry has a delete button for quick removal.*
 
 ### 4. Responsive Design
 
-![Responsive Design](screenshots/responsive_ui.png)
+![Responsive Design](screenshots/visualize.png)
 *View on mobile and desktop screens.*
 
 ---
