@@ -18,6 +18,7 @@ header {
 header h1 {
     margin: 0;
     display: inline-block;
+    color: inherit; /* Keep header color unaffected by themes */
 }
 
 header nav {
@@ -61,13 +62,19 @@ footer {
     padding: 10px 20px;
     margin: 5px;
     background-color: #30a323;  /* Theme Color */
-    color: white;
+    color: rgb(245, 240, 240);
     text-decoration: none;
     border-radius: 12px;  /* Rounded corners */
     text-align: center;
 }
 
-.button:hover {
+/* Keep buttons with specific classes like 'btn-primary', 'btn-success', etc., unaffected by theme */
+.btn-primary, .btn-success, .btn-danger {
+    background-color: #30a323;  /* Keep button colors unchanged */
+    color: white;  /* Ensure text is white */
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-danger:hover {
     background-color: #1d5e14;  /* Darker Shade of Theme Color */
 }
 
@@ -78,6 +85,39 @@ footer {
 
 .button.secondary:hover {
     background-color: #17a673;  /* Darker Teal */
+}
+
+/* Prevent Theme from Affecting Button Colors */
+.btn {
+    background-color: #30a323 !important;  /* Default Green Color */
+    color: white !important;               /* Ensure text is white */
+    border: 1px solid #30a323 !important;  /* Match border to background */
+}
+
+/* Prevent Theme Color Modifications for Button Hover States */
+.btn:hover {
+    background-color: #1d5e14 !important;  /* Darker Green on Hover */
+}
+
+/* Light Theme Buttons */
+.theme-light .btn {
+    background-color: #ffffff !important; /* Light theme button background */
+    color: #212529 !important;
+    border: 1px solid #ddd;
+}
+
+/* Dark Theme Buttons */
+.theme-dark .btn {
+    background-color: #495057 !important;
+    color: #ffffff !important;
+    border: 1px solid #6c757d;
+}
+
+/* Primary Theme Buttons */
+.theme-primary .btn {
+    background-color: #1c7c7c !important;
+    color: white !important;
+    border: 1px solid #118e8e;
 }
 
 /* For pop-up messages */

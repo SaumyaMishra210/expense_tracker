@@ -4,8 +4,23 @@
 
 {% block content %}
 <h2>Expense Breakdown by Category</h2>
+
+<!-- Chart Container -->
 <div class="chart-container" style="width: 80%; margin: 0 auto;">
     <canvas id="expenseChart"></canvas>
+</div>
+
+<!-- Labels and Amounts Display Below the Chart -->
+<div id="labels-container" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+    <h4>Category Breakdown</h4>
+    <div class="category-list" style="text-align: left; margin-top: 10px;">
+        {% for label, value in labels_with_amounts %}
+            <div class="label-amount" style="font-size: 1.2em; margin: 5px 0;">
+                <span class="label" style="font-weight: bold; margin-right: 10px;">{{ label }}:</span>
+                <span class="amount">₹{{ "%.2f"|format(value) }}</span>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <!-- Include Chart.js from CDN -->
@@ -28,6 +43,10 @@
         },
         options: {
             responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            },
             plugins: {
                 legend: {
                     position: 'top'
